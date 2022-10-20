@@ -4,11 +4,11 @@ from pydantic import BaseModel, Field
 
 
 class JsonSchema(BaseModel):
-    """The OpenAPI definition type."""
-
-    type: Optional[str] = None
     """An object that contains a valid JSON OpenAPI definition. For more information, read the [OpenAPI documentation](https://swagger.io/docs/specification/basic-structure/)."""
+
     input: Optional[Any] = None
+    """The OpenAPI definition type."""
+    type: Optional[str] = None
 
     def json(self, **kwargs: Any) -> str:
         """Return a json string representation of the object. Takes same keyword arguments as pydantic.BaseModel.json"""
@@ -21,11 +21,11 @@ class JsonSchema(BaseModel):
         return super().dict(**kwargs)
 
     @classmethod
-    def parse_obj(cls, data: Any) -> Name("jsonSchema"):
+    def parse_obj(cls, data: Any) -> "JsonSchema":
         """Parse a dict into the object. Takes same keyword arguments as pydantic.BaseModel.parse_obj"""
         return super().parse_obj(data)
 
     @classmethod
-    def parse_raw(cls, b: Union[bytes, str], **kwargs: Any) -> Name("jsonSchema"):
+    def parse_raw(cls, b: Union[bytes, str], **kwargs: Any) -> "JsonSchema":
         """Parse a json string into the object. Takes same keyword arguments as pydantic.BaseModel.parse_raw"""
         return super().parse_raw(b, **kwargs)

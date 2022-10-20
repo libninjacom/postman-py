@@ -4,11 +4,11 @@ from pydantic import BaseModel, Field
 
 
 class ImportExportFile(BaseModel):
-    """A file containing a valid user's export .zip file."""
-
-    input: str
     """The `file` type value."""
+
     type: str
+    """A file containing a valid user's export .zip file."""
+    input: str
 
     def json(self, **kwargs: Any) -> str:
         """Return a json string representation of the object. Takes same keyword arguments as pydantic.BaseModel.json"""
@@ -21,11 +21,11 @@ class ImportExportFile(BaseModel):
         return super().dict(**kwargs)
 
     @classmethod
-    def parse_obj(cls, data: Any) -> Name("importExportFile"):
+    def parse_obj(cls, data: Any) -> "ImportExportFile":
         """Parse a dict into the object. Takes same keyword arguments as pydantic.BaseModel.parse_obj"""
         return super().parse_obj(data)
 
     @classmethod
-    def parse_raw(cls, b: Union[bytes, str], **kwargs: Any) -> Name("importExportFile"):
+    def parse_raw(cls, b: Union[bytes, str], **kwargs: Any) -> "ImportExportFile":
         """Parse a json string into the object. Takes same keyword arguments as pydantic.BaseModel.parse_raw"""
         return super().parse_raw(b, **kwargs)

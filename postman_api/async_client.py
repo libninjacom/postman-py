@@ -47,7 +47,7 @@ class AsyncPostmanClient:
         self.base_url = base_url
         self.session = aiohttp.ClientSession(
             headers={
-                "User-Agent": "postman-api/python/1.0.0",
+                "User-Agent": "postman-api/python/2.0.0",
                 "Content-Type": "application/json",
             }
         )

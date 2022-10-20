@@ -52,7 +52,7 @@ class PostmanClient:
         self.base_url = base_url
         self.session = requests.Session()
         self.session.headers["Content-Type"] = "application/json"
-        self.session.headers["User-Agent"] = "postman-api/python/1.0.0"
+        self.session.headers["User-Agent"] = "postman-api/python/2.0.0"
 
     def send(
         self,
