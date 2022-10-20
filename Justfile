@@ -20,3 +20,8 @@ test-full: bootstrap check test
     for file in $(ls examples); do
         python3 "examples/$file"
     done
+
+publish:
+   FLIT_USERNAME="__token__" \
+   FLIT_PASSWORD=$PYPI_API_TOKEN \
+   flit publish
